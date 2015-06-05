@@ -1,0 +1,20 @@
+﻿body {
+}
+
+#BorderSuccesBox {
+    width:60%;
+    height:80px;
+    border:1px solid lightgreen;
+    margin-bottom:10px;
+    border-radius:10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#SuccesBox {
+    margin-left:auto;
+    margin-right:auto;
+    width:500px;
+    text-align:center;
+    margin-top:30px;
+}

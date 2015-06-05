@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="Css/Style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -13,7 +14,16 @@
                 Kunder
             </h1>
 
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Ett fel har inträffat. Korrigera felet och försök igen."/>
+        <asp:ValidationSummary ID="ValidationResults" runat="server" HeaderText="Ett fel har inträffat. Korrigera felet och försök igen."/>
+
+         <asp:PlaceHolder ID="SuccessPlaceHolder" runat="server" Visible="false">
+         <div id="BorderSuccesBox">
+             <div id="SuccesBox">
+                 <asp:Label ID="SuccessLabel" runat="server" ></asp:Label>
+                 <a href="#" id="Esc">X</a>     
+             </div>
+         </div>
+        </asp:PlaceHolder> 
 
             <asp:ListView ID="ContactListView" runat="server"
                 ItemType="_2_2_aventyrliga_kontakter.Model.Contact"
@@ -63,8 +73,9 @@
                         </td>
                         <td class="command">
                             <%-- "Kommandknappar" för att ta bort och redigera kontaktuppgifter --%>
-                            <asp:LinkButton ID="DeleteLinkButton" runat="server" CommandName="Delete" Text="Ta bort" CausesValidation="false" />
                             <asp:LinkButton ID="EditLinkButton" runat="server" CommandName="Edit" Text="Redigera" CausesValidation="false" />
+                            <asp:LinkButton ID="DeleteLinkButton" runat="server" CommandName="Delete" Text="Ta bort" CausesValidation="false" 
+                                OnClientClick='<%# String.Format("return confirm(\"Är du säker att du vill ta bort {0} {1}?\")", Item.FirstName, Item.LastName) %>' />
                         </td>
                     </tr>
                 </ItemTemplate>
@@ -74,6 +85,7 @@
                         Kunduppgifter saknas.
                     </p>
                 </EmptyDataTemplate>
+                
                  <InsertItemTemplate>
                     <%-- Mall för rad i tabellen för att lägga till nya kontaktuppgifter --%>
                     <tr>
@@ -154,5 +166,6 @@
             </asp:ListView>
     </div>
     </form>
+    <script src='<%= ResolveClientUrl("/Script/Script.js") %>' type="text/javascript"></script>
 </body>
 </html>

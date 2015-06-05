@@ -65,7 +65,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\Style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Script\Script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

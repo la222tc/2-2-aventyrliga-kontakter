@@ -18,9 +18,20 @@ namespace _2_2_aventyrliga_kontakter
         {
             get { return _service ?? (_service = new Service()); }
         }
+
+        private string SuccessMessage
+        {
+            get { return Session["SuccessMessage"] as string; }
+            set { Session["SuccessMessage"] = value; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (SuccessMessage != null)
+            {
+                SuccessPlaceHolder.Visible = true;
+                SuccessLabel.Text = SuccessMessage;
+                SuccessMessage = null;
+            }
         }
 
         public IEnumerable<Contact> ContactListView_GetData()
@@ -57,6 +68,9 @@ namespace _2_2_aventyrliga_kontakter
                      try
                      {
                          Service.SaveContact(contact);
+                         SuccessMessage = String.Format("Kontakten har lagts till.");
+                        // Response.Redirect(String.Format("?page={0}", (DataPager.TotalRowCount / DataPager.PageSize) + 1));
+                         Response.Redirect(Request.RawUrl);
                      }
                      catch (Exception)
                      {
