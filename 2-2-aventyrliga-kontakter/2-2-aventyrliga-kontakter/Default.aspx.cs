@@ -13,7 +13,7 @@ namespace _2_2_aventyrliga_kontakter
     public partial class Default : System.Web.UI.Page
     {
         private Service _service;
-
+        
         private Service Service
         {
             get { return _service ?? (_service = new Service()); }

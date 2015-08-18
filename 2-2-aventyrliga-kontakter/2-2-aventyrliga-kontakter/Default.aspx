@@ -92,21 +92,21 @@
                         <td>
                             <asp:TextBox ID="FirstName" runat="server" Text='<%# BindItem.FirstName %>' MaxLength="50" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                ErrorMessage="Fältet får inte vara tomt!"
+                                ErrorMessage="Förnamn fältet får inte vara tomt!"
                                 ControlToValidate="FirstName"
                                 Display="None"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <asp:TextBox ID="LastName" runat="server" Text='<%# BindItem.LastName %>' MaxLength="50" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                                ErrorMessage="Fältet får inte vara tomt!"
+                                ErrorMessage="Efternamn fältet får inte vara tomt!"
                                 ControlToValidate="LastName"
                                 Display="None"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <asp:TextBox ID="EmailAddress" runat="server" Text='<%# BindItem.EmailAddress %>' MaxLength="50" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                ErrorMessage="Fältet får inte vara tomt!"
+                                ErrorMessage="Email fältet får inte vara tomt!"
                                 ControlToValidate="EmailAddress"
                                 Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
@@ -158,7 +158,7 @@
                         </td>
                         <td>
                             <%-- "Kommandknappar" för att uppdatera en kunduppgift och avbryta --%>
-                            <asp:LinkButton ID="LinkButton5" runat="server" CommandName="Update" Text="Spara" />
+                            <asp:LinkButton ID="LinkButton5" runat="server" CommandName="Update" Text="Spara" ValidationGroup="Validations" />
                             <asp:LinkButton ID="LinkButton6" runat="server" CommandName="Cancel" Text="Avbryt" CausesValidation="false" />
                         </td>
                     </tr>
